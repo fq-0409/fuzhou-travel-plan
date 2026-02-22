@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>福州三日游行程规划 - 清明时节</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://webapi.amap.com/maps?v=2.0&key=3958847c97f374c8eda34f469802e026"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部标题和天气 -->
+        <header class="header">
+            <h1><i class="fas fa-map-marked-alt"></i> 福州三日游行程规划</h1>
+            <div class="subtitle">
+                <p><i class="fas fa-calendar-day"></i> 出行时间：清明前后（4月4日-4月6日）</p>
+                <p><i class="fas fa-cloud-sun"></i> 天气状况：温和湿润，气温15-22°C，可能有阵雨，建议携带雨具</p>
+                <p><i class="fas fa-info-circle"></i> 本行程包含景点、交通、食宿及实用信息，并集成高德地图导航</p>
+            </div>
+        </header>
+
+        <!-- 网格布局主要内容 -->
+        <main class="grid-container">
+            <!-- 左侧：每日概览 -->
+            <section class="card overview">
+                <h2><i class="fas fa-list-alt"></i> 每日概览</h2>
+                <div class="day-summary">
+                    <div class="day">
+                        <h3><span class="day-number">第一天</span> 历史文化探索</h3>
+                        <ul>
+                            <li><i class="fas fa-landmark"></i> 三坊七巷</li>
+                            <li><i class="fas fa-tree"></i> 西湖公园</li>
+                            <li><i class="fas fa-hotel"></i> 入住酒店</li>
+                        </ul>
+                    </div>
+                    <div class="day">
+                        <h3><span class="day-number">第二天</span> 自然风光体验</h3>
+                        <ul>
+                            <li><i class="fas fa-mountain"></i> 鼓山</li>
+                            <li><i class="fas fa-tree"></i> 福州国家森林公园</li>
+                            <li><i class="fas fa-utensils"></i> 当地美食</li>
+                        </ul>
+                    </div>
+                    <div class="day">
+                        <h3><span class="day-number">第三天</span> 博物馆与街区漫步</h3>
+                        <ul>
+                            <li><i class="fas fa-university"></i> 福建博物院</li>
+                            <li><i class="fas fa-history"></i> 上下杭历史文化街区</li>
+                            <li><i class="fas fa-plane-departure"></i> 返程</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 中间：详细时间表 -->
+            <section class="card schedule">
+                <h2><i class="fas fa-calendar-alt"></i> 详细时间表</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="time">08:00-09:00</div>
+                        <div class="activity">早餐（酒店或附近早点）</div>
+                        <div class="location">酒店餐厅</div>
+                        <div class="note">推荐品尝福州鱼丸、锅边糊</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time">09:00-12:00</div>
+                        <div class="activity">游览三坊七巷</div>
+                        <div class="location">鼓楼区南后街</div>
+                        <div class="note">参观古民居，体验福州传统文化，建议游玩3小时</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time">12:00-13:30</div>
+                        <div class="activity">午餐（福州特色菜）</div>
+                        <div class="location">三坊七巷附近餐厅</div>
+                        <div class="note">推荐“老福州”餐馆，品尝佛跳墙、荔枝肉</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time">13:30-17:00</div>
+                        <div class="activity">游览西湖公园</div>
+                        <div class="location">湖滨路70号</div>
+                        <div class="note">欣赏园林景观，可乘坐游船，游玩3.5小时</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time">17:30-19:00</div>
+                        <div class="activity">晚餐</div>
+                        <div class="location">西湖公园附近</div>
+                        <div class="note">尝试当地小吃如肉燕、海蛎饼</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time">19:00以后</div>
+                        <div class="activity">自由活动/休息</div>
+                        <div class="location">酒店</div>
+                        <div class="note">建议早点休息，为第二天储备精力</div>
+                    </div>
+                </div>
+                <p class="schedule-note">注：第二、第三天详细时间表请查看完整行程文档。</p>
+            </section>
+
+            <!-- 右侧：地图容器 -->
+            <section class="card map-container">
+                <h2><i class="fas fa-map"></i> 旅游路线地图</h2>
+                <div id="map" class="map"></div>
+                <div class="map-legend">
+                    <div><span class="legend-icon start"></span> 起点/酒店</div>
+                    <div><span class="legend-icon attraction"></span> 景点</div>
+                    <div><span class="legend-icon food"></span> 餐饮</div>
+                    <div><span class="legend-icon route"></span> 推荐路线</div>
+                </div>
+                <p class="map-note">地图显示主要景点位置和推荐游览路线。点击标记可查看详情。</p>
+            </section>
+
+            <!-- 交通信息 -->
+            <section class="card transport">
+                <h2><i class="fas fa-subway"></i> 交通信息</h2>
+                <div class="transport-details">
+                    <h3><i class="fas fa-bus"></i> 公共交通</h3>
+                    <p>福州市内地铁1、2号线覆盖主要景点，结合公交可达性高。</p>
+                    <ul>
+                        <li><strong>三坊七巷</strong>：地铁1号线“东街口”站，步行5分钟</li>
+                        <li><strong>西湖公园</strong>：地铁1号线“屏山”站，步行10分钟</li>
+                        <li><strong>鼓山</strong>：地铁2号线“鼓山”站，转公交或打车前往景区入口</li>
+                        <li><strong>福州国家森林公园</strong>：公交54路、72路直达</li>
+                        <li><strong>福建博物院</strong>：公交88路、158路，或地铁1号线“屏山”站步行15分钟</li>
+                        <li><strong>上下杭</strong>：地铁1号线“达道”站，步行10分钟</li>
+                    </ul>
+                    <h3><i class="fas fa-car"></i> 自驾/打车</h3>
+                    <p>景点间打车费用约15-40元，自驾请注意停车场位置。</p>
+                    <h3><i class="fas fa-walking"></i> 步行建议</h3>
+                    <p>三坊七巷、西湖公园、福建博物院区域适合步行游览。</p>
+                </div>
+            </section>
+
+            <!-- 食宿信息 -->
+            <section class="card accommodation">
+                <h2><i class="fas fa-hotel"></i> 食宿信息</h2>
+                <div class="accommodation-details">
+                    <h3><i class="fas fa-bed"></i> 推荐住宿</h3>
+                    <ul>
+                        <li><strong>福州西湖大酒店</strong>：湖滨路158号，近西湖公园，交通便利</li>
+                        <li><strong>福州三坊七巷亚朵酒店</strong>：鼓楼区杨桥路，位于三坊七巷旁</li>
+                        <li><strong>福州世茂洲际酒店</strong>：台江区江滨中大道，豪华型，视野好</li>
+                    </ul>
+                    <h3><i class="fas fa-utensils"></i> 美食推荐</h3>
+                    <ul>
+                        <li><strong>福州鱼丸</strong>：永和鱼丸、福信鱼丸</li>
+                        <li><strong>佛跳墙</strong>：聚春园大酒店（正宗发源地）</li>
+                        <li><strong>锅边糊</strong>：早餐特色，街头小店均可</li>
+                        <li><strong>荔枝肉</strong>：酸甜可口，老福州餐馆必点</li>
+                        <li><strong>海蛎饼</strong>：上下杭附近小吃摊</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 实用信息 -->
+            <section class="card practical">
+                <h2><i class="fas fa-info-circle"></i> 实用信息</h2>
+                <div class="practical-details">
+                    <h3><i class="fas fa-phone-alt"></i> 紧急电话</h3>
+                    <ul>
+                        <li>报警：110</li>
+                        <li>急救：120</li>
+                        <li>火警：119</li>
+                        <li>旅游投诉：0591-12345</li>
+                    </ul>
+                    <h3><i class="fas fa-exclamation-triangle"></i> 注意事项</h3>
+                    <ul>
+                        <li>清明期间可能降雨，请携带雨具和防水鞋</li>
+                        <li>景点门票建议提前在线预订，避免排队</li>
+                        <li>尊重当地风俗，保护文物古迹</li>
+                        <li>注意饮食卫生，避免生冷食物</li>
+                        <li>保管好个人财物，尤其在拥挤区域</li>
+                    </ul>
+                    <h3><i class="fas fa-download"></i> 行程下载</h3>
+                    <p>可打印本页面作为行程指南，或保存PDF版本。</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- 底部 -->
+        <footer class="footer">
+            <p>© 2026 福州旅游攻略 | 使用高德地图API绘制 | 行程规划仅供参考，实际以当地情况为准</p>
+            <p>本页面兼容高德地图App，可在App中打开并导航。</p>
+        </footer>
+    </div>
+</body>
+</html>

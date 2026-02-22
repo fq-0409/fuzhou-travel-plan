@@ -1,0 +1,462 @@
+/* 基础样式 */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --gray-light: #e9ecef;
+    --gray: #6c757d;
+    --border-radius: 12px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: #f5f7fa;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* 标题区域 */
+.header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.subtitle p {
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* 网格布局 */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+}
+
+/* 卡片通用样式 */
+.card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 24px;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    border: 1px solid var(--gray-light);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
+}
+
+/* 每日概览 */
+.overview {
+    grid-column: span 4;
+}
+
+.day-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.day {
+    padding: 20px;
+    background-color: var(--light-color);
+    border-radius: 10px;
+    border-left: 5px solid var(--secondary-color);
+}
+
+.day h3 {
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    font-size: 1.2rem;
+}
+
+.day-number {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 28px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.day ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.day li {
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--gray);
+}
+
+.day li i {
+    color: var(--secondary-color);
+}
+
+/* 详细时间表 */
+.schedule {
+    grid-column: span 5;
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.timeline-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1.5fr;
+    gap: 15px;
+    padding: 16px;
+    background-color: var(--light-color);
+    border-radius: 8px;
+    align-items: center;
+    border-left: 4px solid var(--accent-color);
+}
+
+.time {
+    font-weight: bold;
+    color: var(--primary-color);
+    background-color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-align: center;
+    border: 1px solid var(--gray-light);
+}
+
+.activity {
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.location {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.note {
+    grid-column: 1 / -1;
+    background-color: white;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: var(--gray);
+    border: 1px dashed var(--gray-light);
+}
+
+.schedule-note {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #fff8e1;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #856404;
+    text-align: center;
+}
+
+/* 地图容器 */
+.map-container {
+    grid-column: span 3;
+    display: flex;
+    flex-direction: column;
+}
+
+.map {
+    height: 350px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--gray-light);
+    background-color: #e8f4f8;
+}
+
+.map-legend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.map-legend div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.legend-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+}
+
+.start {
+    background-color: #27ae60;
+}
+
+.attraction {
+    background-color: #3498db;
+}
+
+.food {
+    background-color: #e74c3c;
+}
+
+.route {
+    background-color: #9b59b6;
+}
+
+.map-note {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: var(--gray);
+    text-align: center;
+    padding: 10px;
+    background-color: var(--light-color);
+    border-radius: 6px;
+}
+
+/* 交通信息 */
+.transport {
+    grid-column: span 6;
+}
+
+.transport-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.transport-details h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.transport-details ul {
+    list-style-position: inside;
+    padding-left: 10px;
+}
+
+.transport-details li {
+    margin: 8px 0;
+    color: var(--gray);
+}
+
+/* 食宿信息 */
+.accommodation {
+    grid-column: span 6;
+}
+
+.accommodation-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.accommodation-details h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.accommodation-details ul {
+    list-style-position: inside;
+    padding-left: 10px;
+}
+
+.accommodation-details li {
+    margin: 8px 0;
+    color: var(--gray);
+}
+
+/* 实用信息 */
+.practical {
+    grid-column: span 12;
+}
+
+.practical-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.practical-details h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.practical-details ul {
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+.practical-details li {
+    margin: 10px 0;
+    color: var(--gray);
+}
+
+/* 底部 */
+.footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--gray);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--gray-light);
+    margin-top: 20px;
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+    .grid-container {
+        grid-template-columns: repeat(8, 1fr);
+    }
+    .overview {
+        grid-column: span 8;
+    }
+    .schedule {
+        grid-column: span 8;
+    }
+    .map-container {
+        grid-column: span 8;
+    }
+    .transport {
+        grid-column: span 8;
+    }
+    .accommodation {
+        grid-column: span 8;
+    }
+    .practical-details {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .subtitle p {
+        flex-direction: column;
+        text-align: center;
+    }
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+    .card {
+        grid-column: span 1;
+    }
+    .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .practical-details {
+        grid-template-columns: 1fr;
+    }
+    .map-legend {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 打印样式 */
+@media print {
+    body {
+        background-color: white;
+        padding: 0;
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+    .header {
+        background: white;
+        color: black;
+        box-shadow: none;
+        border: 2px solid black;
+    }
+    .card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        break-inside: avoid;
+    }
+    .card:hover {
+        transform: none;
+    }
+    .footer {
+        border-top: 1px solid #ccc;
+    }
+    .map {
+        height: 300px;
+        border: 1px solid #ccc;
+    }
+    .timeline-item {
+        border-left: 3px solid #ccc;
+    }
+}
